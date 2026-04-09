@@ -1,0 +1,271 @@
+/* ── Editor: fills the content card ── */
+.editor {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  padding: 30px 30px 0 30px;
+}
+
+/* ── Row: horizontal layout for content + actions ── */
+.titleRow {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex-shrink: 0;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.bodyRow {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  flex: 1;
+  min-height: 0;
+}
+
+/* ── Title container: white card, h=40 ── */
+.titleContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  background-color: #FFFFFF;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 0 30px;
+  min-width: 0;
+}
+
+.titleContainer.editing {
+  border-color: #4CB3F8;
+}
+
+.title {
+  margin: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #333333;
+  line-height: 40px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.titleInput {
+  width: 100%;
+  padding: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #333333;
+  line-height: 40px;
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.titleInput:disabled {
+  opacity: 0.7;
+}
+
+/* ── Body container: white card, flex ── */
+.bodyContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.bodyContainer.editing {
+  border-color: #4CB3F8;
+}
+
+.bodyContent {
+  flex: 1;
+  padding: 26px 30px 30px 30px;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.bodyContent::-webkit-scrollbar {
+  width: 8px;
+}
+
+.bodyContent::-webkit-scrollbar-thumb {
+  background: #B3B3B3;
+  border-radius: 4px;
+}
+
+.bodyContent::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.bodyText {
+  margin: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.9;
+  color: #333333;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.bodyTextarea {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.9;
+  color: #333333;
+  border: none;
+  outline: none;
+  resize: none;
+  background: transparent;
+}
+
+.bodyTextarea:disabled {
+  opacity: 0.7;
+}
+
+/* ── Validation row ── */
+.validationRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 4px 30px 8px 30px;
+  flex-shrink: 0;
+  min-height: 20px;
+}
+
+.titleValidation {
+  position: absolute;
+  top: 44px;
+  left: 0;
+  right: 110px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-height: 16px;
+}
+
+.error {
+  flex: 1;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 12px;
+  color: #d32f2f;
+}
+
+.count {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 12px;
+  color: #4D4D4D;
+}
+
+/* ── Actions column: holds buttons ── */
+.actions {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+/* ── Shared button base: vertical icon + label ── */
+.btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.15s;
+  gap: 0;
+}
+
+.btn img {
+  width: 24px;
+  height: 24px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.btnLabel {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 10px;
+  text-align: center;
+  display: block;
+}
+
+/* ── Edit button: 90×40, solid blue ── */
+.editBtn {
+  composes: btn;
+  width: 90px;
+  height: 40px;
+  background-color: #4CB3F8;
+}
+
+.editBtn:hover {
+  background-color: #3C8EC4;
+}
+
+.editBtn .btnLabel {
+  color: #FFFFFF;
+}
+
+/* ── Cancel button: 40×40, gray ── */
+.cancelBtn {
+  composes: btn;
+  width: 40px;
+  height: 40px;
+  background-color: #B3B3B3;
+}
+
+.cancelBtn:hover:not(:disabled) {
+  background-color: #808080;
+}
+
+.cancelBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.cancelBtn .btnLabel {
+  color: #FFFFFF;
+}
+
+/* ── Save button: 40×40, solid blue ── */
+.saveBtn {
+  composes: btn;
+  width: 40px;
+  height: 40px;
+  background-color: #4CB3F8;
+}
+
+.saveBtn:hover:not(:disabled) {
+  background-color: #3C8EC4;
+}
+
+.saveBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.saveBtn .btnLabel {
+  color: #FFFFFF;
+}

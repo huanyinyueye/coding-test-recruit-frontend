@@ -1,0 +1,214 @@
+/* ── Sidebar: full height, 280px ── */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  min-width: 280px;
+  height: 100vh;
+  background-color: #FFFFFF;
+  overflow: hidden;
+}
+
+/* ── Logo area ── */
+.logoArea {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+  padding: 30px 16px 20px 40px;
+  flex-shrink: 0;
+}
+
+.logoImg {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.serviceName {
+  font-family: 'Gotham', 'Noto Sans JP', sans-serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: #1A1A1A;
+  line-height: 24px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ── Menu list card: white card ── */
+.menuCard {
+  flex: 1;
+  margin: 0 0 0 40px;
+  background-color: #FFFFFF;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+.menuCard::-webkit-scrollbar {
+  width: 8px;
+}
+
+.menuCard::-webkit-scrollbar-thumb {
+  background: #B3B3B3;
+  border-radius: 4px;
+}
+
+.menuCard::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 240px;
+}
+
+/* ── Menu item ── */
+.item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 44px;
+  padding: 0;
+  border-radius: 4px;
+}
+
+.item.selected {
+  background-color: #F5F8FA;
+}
+
+.pageButton {
+  flex: 1;
+  text-align: left;
+  padding: 0 6px 0 10px;
+  height: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  line-height: 44px;
+}
+
+.item.selected .pageButton {
+  color: #32A8F8;
+  font-weight: 700;
+}
+
+/* ── Delete icon (only visible in edit mode) ── */
+.deleteButton {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  margin-right: 10px;
+  background: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.deleteButton img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+/* ── Sidebar footer area ── */
+.sidebarFooter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 60px;
+  padding: 0 10px 0 40px;
+  background-color: #F6F8FA;
+  flex-shrink: 0;
+}
+
+/* ── Buttons: shared vertical icon+label layout ── */
+.btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 90px;
+  height: 40px;
+  padding: 2px 0;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s;
+  gap: 0;
+}
+
+.btn img {
+  width: 24px;
+  height: 24px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.btnLabel {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 10px;
+  text-align: center;
+  display: block;
+}
+
+/* ── Edit button: solid blue, right-aligned ── */
+.editBtn {
+  composes: btn;
+  background-color: #4CB3F8;
+  margin-left: auto;
+}
+
+.editBtn:hover {
+  background-color: #3C8EC4;
+}
+
+.editBtn .btnLabel {
+  color: #FFFFFF;
+}
+
+/* ── Add button: outlined style ── */
+.addBtn {
+  composes: btn;
+  background-color: #FFFFFF;
+  border: 2px solid #4CB3F8;
+}
+
+.addBtn:hover {
+  background-color: #F0F8FF;
+}
+
+.addBtn .btnLabel {
+  color: #4CB3F8;
+}
+
+/* ── Done button: solid blue, right side ── */
+.doneBtn {
+  composes: btn;
+  background-color: #4CB3F8;
+  margin-left: auto;
+}
+
+.doneBtn:hover {
+  background-color: #3C8EC4;
+}
+
+.doneBtn .btnLabel {
+  color: #FFFFFF;
+}
